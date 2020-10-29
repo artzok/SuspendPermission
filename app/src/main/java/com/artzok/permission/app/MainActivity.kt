@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import androidx.lifecycle.lifecycleScope
 import com.artzok.permission.requestPermissions
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     companion object {
@@ -18,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         findViewById<View>(R.id.location).setOnClickListener {
-            lifecycleScope.launchWhenResumed {
+            lifecycleScope.launch {
                 val result = requestPermissions(
                     listOf(
                         Manifest.permission.ACCESS_FINE_LOCATION,
