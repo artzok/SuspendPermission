@@ -96,7 +96,9 @@ open class PermissionFragment : Fragment() {
 
     private fun tryRequestPermission() {
         if (!isRemoving && activity != null &&
-            !isDetached && isAdded && requestingDeferred == null
+            !isDetached && isAdded && 
+            requestingDeferred == null &&
+            readyPermissionsArray.size() > 0
         ) {
             val requestCode = readyPermissionsArray.keyAt(0)
             val def = readyDeferredArray[requestCode]
