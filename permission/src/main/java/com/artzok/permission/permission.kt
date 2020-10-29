@@ -83,12 +83,6 @@ open class PermissionFragment : Fragment() {
     }
 
     fun requestPermissions(deferred: CompletableDeferred<IntArray>, permissions: List<String>) {
-        // check current has pending
-        repeat(readyPermissionsArray.size()) {
-            val value = readyPermissionsArray[readyPermissionsArray.keyAt(it)]
-            if (value == permissions) return
-        }
-
         readyDeferredArray.put(++requestCode, deferred)
         readyPermissionsArray.put(requestCode, permissions)
         tryRequestPermission()
