@@ -1,4 +1,4 @@
-#### USER suspend METHOD requestPermission
+#### use suspend method requestPermission
 
 ```java
 lifecycleScope.launch {
